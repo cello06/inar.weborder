@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -165,6 +164,7 @@ public class WO_006_OP_01 extends Hooks {
 					"Product is not successfully created!");
 
 		}
+
 
 	}
 
