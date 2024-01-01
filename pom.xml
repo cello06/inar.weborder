@@ -74,6 +74,7 @@
                         <include>**/*WO_005_CF_02.java</include>
                         <include>**/*WO_006_OP_01.java</include>
                         <include>**/*WO_007_OP_02.java</include>
+                        <include>**/*WO_008_OP_03.java</include>
                     </includes>
                 </configuration>
             </plugin>
