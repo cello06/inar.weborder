@@ -1,3 +1,4 @@
+
 /**1- Open the URL.
  * 2- Click "WebOrder" button on top bar.
  * 3- Enter valid username "Inar" and password "Academy".
@@ -27,129 +28,136 @@ import org.openqa.selenium.support.ui.Select;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class WO_007_0P_02 extends Hooks{
+public class WO_007_0P_02 extends Hooks {
 
-    @BeforeEach
-    void setUp() {
-        System.out.println("WO_007_OP_02 --> Verifying Order Placement Without Calculation Test started");
-    }
-    @Test
-    void testOrderPlacementWithoutCalculation() throws InterruptedException {
-        //Click "WebOrder" button on top bar.
-        WebElement webOrderButton = driver.findElement(By.xpath("//a[@href='/weborder']"));
-        webOrderButton.click();
+	@BeforeEach
+	void setUp() {
+		System.out.println("WO_007_OP_02 --> Verifying Order Placement Without Calculation Test started");
+	}
 
-        //Enter valid username "Inar" and password "Academy".
-        WebElement usernameElement = driver.findElement(By.id("login-username-input"));
-        WebElement passwordElement = driver.findElement(By.id("login-password-input"));
+	@Test
+	void testOrderPlacementWithoutCalculation() throws InterruptedException {
+		// Click "WebOrder" button on top bar.
+		WebElement webOrderButton = driver.findElement(By.xpath("//a[@href='/weborder']"));
+		webOrderButton.click();
 
-        usernameElement.sendKeys("Inar");
-        passwordElement.sendKeys("Academy");
+		// Enter valid username "Inar" and password "Academy".
+		WebElement usernameElement = driver.findElement(By.id("login-username-input"));
+		WebElement passwordElement = driver.findElement(By.id("login-password-input"));
 
-        //Navigate to the order page.
-        WebElement loginButtonElement = driver.findElement(By.id("login-button"));
-        loginButtonElement.click();
+		usernameElement.sendKeys("Inar");
+		passwordElement.sendKeys("Academy");
 
-        WebElement orderButtonElement = driver.findElement(By.xpath("//a[@href='/weborder/order']"));
-        orderButtonElement.click();
+		// Navigate to the order page.
+		WebElement loginButtonElement = driver.findElement(By.id("login-button"));
+		loginButtonElement.click();
 
-        //Select "FamilyAlbum" from Product dropdown.
-        WebElement productDropBowElement = driver.findElement(By.id("productSelect"));
-        Select select = new Select(productDropBowElement);
-        select.selectByVisibleText("FamilyAlbum");
+		WebElement orderButtonElement = driver.findElement(By.xpath("//a[@href='/weborder/order']"));
+		orderButtonElement.click();
 
-        //Enter "3" as quantity number.
-        WebElement quantityElement = driver.findElement(By.id("quantityInput"));
-        quantityElement.sendKeys("3");
+		// Select "FamilyAlbum" from Product dropdown.
+		WebElement productDropBowElement = driver.findElement(By.id("productSelect"));
+		Select select = new Select(productDropBowElement);
+		select.selectByVisibleText("FamilyAlbum");
 
-        //Enter "17" as discount percentage.
-        WebElement discountElement = driver.findElement(By.id("discountInput"));
-        discountElement.sendKeys("17");
+		// Enter "3" as quantity number.
+		WebElement quantityElement = driver.findElement(By.id("quantityInput"));
+		quantityElement.sendKeys("3");
 
-        /**Intentionally not click to calculate button to test it!*/
+		// Enter "17" as discount percentage.
+		WebElement discountElement = driver.findElement(By.id("discountInput"));
+		discountElement.sendKeys("17");
 
-        //Enter "Inar Academy" as Name.
-        WebElement nameElement = driver.findElement(By.id("name"));
-        nameElement.sendKeys("Inar");
+		/** Intentionally not click to calculate button to test it! */
 
-        //Enter "1100 Congress Ave" as Street.
-        WebElement streetElement = driver.findElement(By.id("street"));
-        streetElement.sendKeys("1100 Congress Ave");
+		// Enter "Inar Academy" as Name.
+		WebElement nameElement = driver.findElement(By.id("name"));
+		nameElement.sendKeys("Inar");
 
-        //Enter "Austin" as City.
-        WebElement cityElement = driver.findElement(By.id("city"));
-        cityElement.sendKeys("Austin");
+		// Enter "1100 Congress Ave" as Street.
+		WebElement streetElement = driver.findElement(By.id("street"));
+		streetElement.sendKeys("1100 Congress Ave");
 
-        //Enter "TX" State.
-        WebElement stateElement = driver.findElement(By.id("state"));
-        stateElement.sendKeys("TX");
+		// Enter "Austin" as City.
+		WebElement cityElement = driver.findElement(By.id("city"));
+		cityElement.sendKeys("Austin");
 
-        //Enter "78701" as Zip Code(number).
-        WebElement zipcodeElement = driver.findElement(By.id("zip"));
-        zipcodeElement.sendKeys("78701");
+		// Enter "TX" State.
+		WebElement stateElement = driver.findElement(By.id("state"));
+		stateElement.sendKeys("TX");
 
-        //We need to scroll down to choose card type
+		// Enter "78701" as Zip Code(number).
+		WebElement zipcodeElement = driver.findElement(By.id("zip"));
+		zipcodeElement.sendKeys("78701");
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scroll(0,1200)");
-        Thread.sleep(1000);
+		// We need to scroll down to choose card type
 
-        //Select "Mastercard" as Card Type.
-        WebElement cardType = driver.findElement(By.id("mastercard"));
-        cardType.click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scroll(0,1200)");
+		Thread.sleep(1000);
 
-        //Enter "5162738261027163" as Card Number.
-        WebElement cardNumberElement = driver.findElement(By.id("cardNumber"));
-        cardNumberElement.sendKeys("5162738261027163");
+		// Select "Mastercard" as Card Type.
+		WebElement cardType = driver.findElement(By.id("mastercard"));
+		cardType.click();
 
-        //Enter "11/28" Expire Date(mm/yy format).
-        WebElement expDateElement = driver.findElement(By.id("expiryDate"));
-        expDateElement.sendKeys("11/28");
+		// Enter "5162738261027163" as Card Number.
+		WebElement cardNumberElement = driver.findElement(By.id("cardNumber"));
+		cardNumberElement.sendKeys("5162738261027163");
 
-        //Click "Process"" button.
-        WebElement processButtonElement = driver.findElement(By.xpath("//div/button[@type='submit']"));
-        processButtonElement.click();
+		// Enter "11/28" Expire Date(mm/yy format).
+		WebElement expDateElement = driver.findElement(By.id("expiryDate"));
+		expDateElement.sendKeys("11/28");
 
-        /**We expect not to see 'New order has been successfully added' message!
-         * So first we check this message
-         * Then check error message under calculate button*/
+		// Click "Process"" button.
+		WebElement processButtonElement = driver.findElement(By.xpath("//div/button[@type='submit']"));
+		processButtonElement.click();
 
-        boolean passingToSecondTestCondition = false;
-        try {
-            WebElement productSuccessfullyAddedMessageElement = driver.findElement(By.cssSelector("div[role=alert]"));
-            System.out.println(productSuccessfullyAddedMessageElement.getText() + " --ERROR-- This message must not be displayed");
-        }catch (NoSuchElementException e){
-            //As Expected Result : There is no 'New order has been successfully added' message "
-            //                    "Now we will check for error message under calculate button
+		/**
+		 * We expect not to see 'New order has been successfully added' message! So first
+		 * we check this message Then check error message under calculate button
+		 */
 
-            passingToSecondTestCondition = true;
-        }
+		boolean passingToSecondTestCondition = false;
+		try {
+			WebElement productSuccessfullyAddedMessageElement = driver.findElement(By.cssSelector("div[role=alert]"));
+			System.out.println(
+					productSuccessfullyAddedMessageElement.getText() + " --ERROR-- This message must not be displayed");
+		}
+		catch (NoSuchElementException e) {
+			// As Expected Result : There is no 'New order has been successfully added'
+			// message "
+			// "Now we will check for error message under calculate button
 
-        //We need to scroll up the page
-        js.executeScript("window.scroll(0,500)");
-        Thread.sleep(1000);
-        boolean isTestPassed = false;
-        //Find error message
-        WebElement errorMessage = driver.findElement(By.xpath("//em[contains(text(),'Fix errors')]"));
-        if (errorMessage.isDisplayed() && passingToSecondTestCondition){
-            isTestPassed = true;
-        }
+			passingToSecondTestCondition = true;
+		}
 
-        assertTrue(isTestPassed,"Test Fail! \n" +
-                "Expected Result : 1-) We must see Error Message about order part\n" +
-                "                  2-) We must not see successfully added message\n" +
-                "Actual Result   : Error message can not be found!");
+		// We need to scroll up the page
+		js.executeScript("window.scroll(0,500)");
+		Thread.sleep(1000);
+		boolean isTestPassed = false;
+		// Find error message
+		WebElement errorMessage = driver.findElement(By.xpath("//em[contains(text(),'Fix errors')]"));
+		if (errorMessage.isDisplayed() && passingToSecondTestCondition) {
+			isTestPassed = true;
+		}
 
-        System.out.println("Verifying Order Placement Without Calculation Test \n" +
-                "Expected Result : 1-) We must see Error Message about order part\n" +
-                "                  2-) We must not see successfully added message\n" +
-                "Actual Result : 1-) As Expected we saw Error Message about order part\n" +
-                "                2-) As Expected we did not see successfully added message");
+		assertTrue(isTestPassed,
+				"Test Fail! \n" + "Expected Result : 1-) We must see Error Message about order part\n"
+						+ "                  2-) We must not see successfully added message\n"
+						+ "Actual Result   : Error message can not be found!");
 
-    }
-    @AfterEach
-    void tearDown() {
-        System.out.println("WO_006_OP_01 --> Verifying Order Placement Test finished");
-        System.out.println("###########################################################");
-    }
+		System.out.println("Verifying Order Placement Without Calculation Test \n"
+				+ "Expected Result : 1-) We must see Error Message about order part\n"
+				+ "                  2-) We must not see successfully added message\n"
+				+ "Actual Result : 1-) As Expected we saw Error Message about order part\n"
+				+ "                2-) As Expected we did not see successfully added message");
+
+	}
+
+	@AfterEach
+	void tearDown() {
+		System.out.println("WO_006_OP_01 --> Verifying Order Placement Test finished");
+		System.out.println("###########################################################");
+	}
+
 }

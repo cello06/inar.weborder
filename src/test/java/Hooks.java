@@ -15,6 +15,7 @@ import java.time.Duration;
 public class Hooks {
 
 	protected static WebDriver driver;
+
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 	@BeforeAll
@@ -47,8 +48,6 @@ public class Hooks {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get("https://InarAcademy:Fk160621.@test.inar-academy.com");
-
-
 
 		if (browser.equalsIgnoreCase("firefox")) {
 			driver.navigate().refresh();
