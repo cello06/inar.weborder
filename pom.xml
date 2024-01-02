@@ -80,6 +80,7 @@
                         <include>**/*WO_011_VAO_02.java</include>
                         <include>**/*WO_012_VAO_03.java</include>
                         <include>**/*WO_013_VAP_01.java</include>
+                        <include>**/*WO_014_OP_05.java</include>
                     </includes>
                 </configuration>
             </plugin>
